@@ -1,0 +1,41 @@
+# .NET / Backend (api)
+**/bin/
+**/obj/
+.vs/
+*.user
+*.suo
+*.userprefs
+*.env
+secrets.json
+**/Migrations/**/DesignTime*.cs
+
+# Angular / Frontend (web)
+web/focuspink-web/node_modules/
+web/focuspink-web/dist/
+web/focuspink-web/tmp/
+web/focuspink-web/out-tsc/
+web/focuspink-web/.angular/cache/
+web/focuspink-web/.sass-cache/
+web/focuspink-web/coverage/
+web/focuspink-web/.env
+web/focuspink-web/npm-debug.log
+web/focuspink-web/yarn-error.log
+
+# Editors & IDEs
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.sublime-workspace
+*.sublime-project
+.project
+.classpath
+.settings/
+.c9/
+
+# OS / Misc
+.DS_Store
+Thumbs.db
+*.log

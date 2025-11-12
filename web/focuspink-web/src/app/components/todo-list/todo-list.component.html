@@ -1,0 +1,37 @@
+<div class="wrap">
+
+<header>
+  <h1>FocusPink</h1>
+  <p class="tagline">
+    Stay cute. Stay focused!
+    <img src="images/bow.png" alt="bow" class="bow-icon" />
+  </p>
+</header>
+
+
+  <form (ngSubmit)="create()" class="composer">
+    <input
+      [(ngModel)]="title"
+      name="title"
+      placeholder="Add a task"
+      autocomplete="off"
+      aria-label="New task title"
+    />
+    <button type="submit" aria-label="Add task">Add</button>
+  </form>
+
+  <p class="empty" *ngIf="!todos().length">
+    No tasks yet! Add your first!
+  </p>
+
+  <ul class="list">
+    <li class="card" *ngFor="let t of todos()">
+      <label class="item">
+        <input type="checkbox" [checked]="t.isDone" (change)="toggle(t)" />
+        <span class="title" [class.done]="t.isDone">{{ t.title }}</span>
+      </label>
+      <button class="del" (click)="remove(t)" aria-label="Delete task">✕</button>
+    </li>
+  </ul>
+  
+</div>
