@@ -1,9 +1,11 @@
-# build
+# build stage
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
+
+COPY FocusPink.Api/FocusPink.Api.csproj FocusPink.Api/
 COPY FocusPink.Core/FocusPink.Core.csproj FocusPink.Core/
 COPY FocusPink.Infrastructure/FocusPink.Infrastructure.csproj FocusPink.Infrastructure/
-COPY FocusPink.Api/FocusPink.Api.csproj FocusPink.Api/
+
 RUN dotnet restore FocusPink.Api/FocusPink.Api.csproj
 COPY . .
 RUN dotnet publish FocusPink.Api/FocusPink.Api.csproj -c Release -o /app

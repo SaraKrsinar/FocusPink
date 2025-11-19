@@ -5,9 +5,18 @@
 *.user
 *.suo
 *.userprefs
-*.env
 secrets.json
 **/Migrations/**/DesignTime*.cs
+
+# Ignore environment files (but keep example files)
+.env
+.env.*
+!.env.example
+!.env.*.example
+
+# Ignore publish outputs
+**/publish/
+**/app/
 
 # Angular / Frontend (web)
 web/focuspink-web/node_modules/
@@ -20,6 +29,9 @@ web/focuspink-web/coverage/
 web/focuspink-web/.env
 web/focuspink-web/npm-debug.log
 web/focuspink-web/yarn-error.log
+
+# Angular new builder cache (Angular 17+/18)
+web/focuspink-web/.web/
 
 # Editors & IDEs
 .vscode/*
