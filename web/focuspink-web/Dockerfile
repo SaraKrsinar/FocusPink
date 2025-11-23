@@ -15,7 +15,7 @@ WORKDIR /usr/share/nginx/html
 
 RUN rm -rf ./*
 
-COPY --from=build /app/dist/focuspink-web ./
+COPY --from=build /app/dist/focuspink-web/browser ./
 
 COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 

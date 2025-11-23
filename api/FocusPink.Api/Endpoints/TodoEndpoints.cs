@@ -1,5 +1,6 @@
 using FocusPink.Core.Interfaces;
 using FocusPink.Core.Entities;
+using FocusPink.Api.DTOs;
 
 namespace FocusPink.Api.Endpoints
 {
@@ -12,12 +13,18 @@ namespace FocusPink.Api.Endpoints
             group.MapGet("/", async (ITodoRepository repo) =>
                 Results.Ok(await repo.GetAllAsync()));
 
-            group.MapPost("/", async (ITodoRepository repo, TodoItem input) =>
+            group.MapPost("/", async (ITodoRepository repo, CreateTodoRequest input) =>
             {
                 if (string.IsNullOrWhiteSpace(input.Title))
                     return Results.BadRequest("Title is required");
 
-                var created = await repo.AddAsync(new TodoItem { Title = input.Title.Trim() });
+                var created = await repo.AddAsync(new TodoItem
+                {
+                    Title = input.Title.Trim(),
+                    IsDone = false,
+                    CreatedAt = DateTime.UtcNow
+                });
+
                 return Results.Created($"/api/todos/{created.Id}", created);
             });
 
