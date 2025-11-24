@@ -42,13 +42,21 @@ POSTGRES_DB=focuspinkdb
 ---
 
 ### 3) Run with docker compose
+### First build:
 ```bash
-docker compose up -d
+docker compose up --build
+```
+### Next time:
+```bash
+docker compose up
 ```
 
 This command will start the database, API, and web app containers together.
 
-
+### If you want to stop all containers:
+```bash
+docker compose down
+```
 ---
 
 ## About environment configuration
